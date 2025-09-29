@@ -1,6 +1,7 @@
+import { IPost } from "@/types";
 import Image from "next/image";
 
-export default async function BlogDetailsCard({ blog }: { blog: any }) {
+export default async function BlogDetailsCard({ blog }: { blog: IPost }) {
   if (!blog) {
     return (
       <div className="py-20 text-center text-gray-500">Blog not found.</div>
