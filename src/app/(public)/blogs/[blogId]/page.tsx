@@ -2,6 +2,9 @@ import BlogDetailsCard from "@/components/modules/Blogs/BlogDetailsCard";
 import { getBlogById } from "@/services/PostServices";
 import { IPost } from "@/types";
 
+// ISR: Revalidate every 60 seconds
+export const revalidate = 60;
+
 export const generateStaticParams = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`);
   const { data: blogs } = await res.json();
