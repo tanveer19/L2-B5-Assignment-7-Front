@@ -2,7 +2,6 @@
 import { FieldValues, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import {
   Form,
   FormControl,
@@ -11,14 +10,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import Image from "next/image";
 import { signIn } from "next-auth/react";
-import { login } from "@/actions/auth";
-
-type LoginFormValues = {
-  email: string;
-  password: string;
-};
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const form = useForm<FieldValues>({
@@ -28,18 +22,20 @@ export default function LoginForm() {
     },
   });
 
+  const router = useRouter();
   const onSubmit = async (values: FieldValues) => {
     try {
-      // const res = await login(values);
-      // if (res?.id) {
-      //   toast.success("Login success");
-      // } else {
-      //   toast.error("user login failed");
-      // }
-      signIn("credentials", {
+      const result = await signIn("credentials", {
         ...values,
-        callbackUrl: "/dashboard",
+        redirect: false, // prevent auto-redirect
       });
+
+      if (result?.error) {
+        toast.error("Invalid credentials. Please try again.");
+      } else {
+        toast.success("Login successful!");
+        router.push("/dashboard"); // redirect manually
+      }
     } catch (err) {
       console.error(err);
     }
