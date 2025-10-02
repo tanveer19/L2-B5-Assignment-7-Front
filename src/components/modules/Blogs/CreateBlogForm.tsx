@@ -3,13 +3,26 @@ import { create } from "@/actions/create";
 import Form from "next/form";
 
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function CreateBlogForm() {
   const [isFeatured, setIsFeatured] = useState("false");
+  const handleSubmit = async (formData: FormData) => {
+    const result = await create(formData);
+
+    if (result.success) {
+      toast.success("✅ Blog created successfully!");
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
+    } else {
+      toast.error(result.error || "❌ Failed to create blog");
+    }
+  };
 
   return (
     <Form
-      action={create}
+      action={handleSubmit}
       className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg space-y-4 w-full"
     >
       <h2 className="text-xl font-semibold mb-4">Create Blog</h2>
@@ -20,6 +33,7 @@ export default function CreateBlogForm() {
           Title
         </label>
         <input
+          required
           type="text"
           id="title"
           name="title"
@@ -33,6 +47,7 @@ export default function CreateBlogForm() {
           Content
         </label>
         <textarea
+          required
           id="content"
           name="content"
           rows={4}
@@ -46,6 +61,7 @@ export default function CreateBlogForm() {
           Thumbnail URL
         </label>
         <input
+          required
           type="url"
           id="thumbnail"
           name="thumbnail"
@@ -59,6 +75,7 @@ export default function CreateBlogForm() {
           Tags (comma separated)
         </label>
         <input
+          required
           type="text"
           id="tags"
           name="tags"
