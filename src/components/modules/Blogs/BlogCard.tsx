@@ -20,9 +20,12 @@ export default function BlogCard({
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`/api/blogs/${post.id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_API}/post/${post.id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to delete blog");
 
