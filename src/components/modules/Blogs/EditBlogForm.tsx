@@ -27,7 +27,7 @@ export default function EditBlogForm({ blog }: EditBlogFormProps) {
       const result = await update(blog.id.toString(), formData);
 
       if (result.success) {
-        toast.success("✅ Blog updated successfully!");
+        toast.success(" Blog updated successfully!");
         router.push("/dashboard");
         router.refresh(); // Refresh to show updated data
       } else {

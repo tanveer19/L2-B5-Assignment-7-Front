@@ -17,3 +17,17 @@ export interface IPost {
   views?: number;
   createdAt: string;
 }
+export interface IProject {
+  id: number;
+  name: string;
+  description: string;
+  thumbnail?: string;
+  projectLink?: string;
+  liveLink?: string;
+  isFeatured: boolean;
+  features: string[];
+  authorId: number;
+  author: IAuthor;
+  views?: number;
+  createdAt: string;
+}
