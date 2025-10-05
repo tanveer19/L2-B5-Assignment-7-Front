@@ -17,9 +17,9 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: {
-  params: Promise<{ blogId: string }>;
+  params: Promise<{ blogId: string }>; // Changed to Promise
 }) => {
-  const { blogId } = await params;
+  const { blogId } = await params; // Added await
 
   const blog = await getBlogById(blogId);
 
@@ -32,9 +32,9 @@ export const generateMetadata = async ({
 const BlogDetailsPage = async ({
   params,
 }: {
-  params: Promise<{ blogId: string }>;
+  params: Promise<{ blogId: string }>; // Changed to Promise
 }) => {
-  const { blogId } = await params;
+  const { blogId } = await params; // Added await
   const blog = await getBlogById(blogId);
 
   return (

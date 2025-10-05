@@ -2,7 +2,7 @@ import EditBlogForm from "@/components/modules/Blogs/EditBlogForm";
 import { IPost } from "@/types";
 
 interface PageProps {
-  params: Promise<{ blogId: string }>; // NOTE: params is a Promise here
+  params: Promise<{ blogId: string }>; // Changed to Promise
 }
 
 async function getBlog(blogId: string): Promise<IPost> {
@@ -19,12 +19,11 @@ async function getBlog(blogId: string): Promise<IPost> {
 export default async function EditBlogPage({ params }: PageProps) {
   let blog: IPost | null = null;
 
-  // await params before using
-  const { blogId } = await params;
+  const { blogId } = await params; // Added await
 
   try {
     blog = await getBlog(blogId);
-  } catch (error) {
+  } catch {
     return <p className="text-red-500 text-center mt-10">Blog not found</p>;
   }
 

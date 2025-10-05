@@ -1,4 +1,5 @@
 import { PhoneIcon, MapPinIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 
 // Hardcoded static JSON (SSG)
 const aboutData = {
@@ -25,7 +26,7 @@ export default function AboutPage() {
       {/* Card */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
         {/* Avatar */}
-        <img
+        <Image
           src={aboutData.avatar}
           alt="Profile Picture"
           className="w-36 h-36 rounded-full border-4 border-sky-500 shadow-md"

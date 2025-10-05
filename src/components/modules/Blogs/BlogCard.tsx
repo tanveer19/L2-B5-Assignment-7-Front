@@ -31,8 +31,12 @@ export default function BlogCard({
 
       toast.success("Blog deleted successfully 🚀");
       router.refresh(); // refresh page to reflect changes
-    } catch (error: any) {
-      toast.error(error.message || "Something went wrong");
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("Something went wrong");
+      }
     }
   };
 
