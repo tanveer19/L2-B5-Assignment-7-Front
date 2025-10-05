@@ -4,7 +4,7 @@ import Image from "next/image";
 // Hardcoded static JSON (SSG)
 const aboutData = {
   name: "Tanveer Hossain Jony",
-  email: "tanveer@example.com",
+  email: "thjbd19@g.....com",
   phone: "+880 1234 567890",
   location: "Dhaka, Bangladesh",
   bio: "I’m a passionate Frontend Developer with experience in React, Next.js, Express, and Prisma. I enjoy building clean, responsive, and user-friendly web applications.",
@@ -28,6 +28,8 @@ export default function AboutPage() {
         {/* Avatar */}
         <Image
           src={aboutData.avatar}
+          width={512}
+          height={512}
           alt="Profile Picture"
           className="w-36 h-36 rounded-full border-4 border-sky-500 shadow-md"
         />

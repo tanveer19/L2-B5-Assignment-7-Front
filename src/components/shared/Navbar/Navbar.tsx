@@ -22,7 +22,6 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "Blogs", href: "/blogs" },
     { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
   ];
 
   // Auth-based links
