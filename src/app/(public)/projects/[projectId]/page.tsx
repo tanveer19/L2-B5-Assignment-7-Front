@@ -1,47 +1,47 @@
-import BlogDetailsCard from "@/components/modules/Blogs/BlogDetailsCard";
-import { getBlogById } from "@/services/PostServices";
-import { IPost } from "@/types";
+import ProjectDetailsCard from "@/components/modules/Projects/ProjectDetailsCard";
+import { getProjectById } from "@/services/ProjectServices";
+import { IProject } from "@/types";
 
 // ISR: Revalidate every 60 seconds
 export const revalidate = 60;
 
 export const generateStaticParams = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`);
-  const { data: blogs } = await res.json();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`);
+  const { data: projects } = await res.json();
 
-  return blogs.slice(0, 2).map((blog: IPost) => ({
-    blogId: String(blog.id),
+  return projects.slice(0, 2).map((project: IProject) => ({
+    projectId: String(project.id),
   }));
 };
 
 export const generateMetadata = async ({
   params,
 }: {
-  params: Promise<{ blogId: string }>; // Changed to Promise
+  params: Promise<{ projectId: string }>; // Changed to Promise
 }) => {
-  const { blogId } = await params; // Added await
+  const { projectId } = await params; // Added await
 
-  const blog = await getBlogById(blogId);
+  const project = await getProjectById(projectId);
 
   return {
-    title: blog?.title,
-    description: blog?.content,
+    title: project?.name,
+    description: project?.description,
   };
 };
 
-const BlogDetailsPage = async ({
+const ProjectDetailsPage = async ({
   params,
 }: {
-  params: Promise<{ blogId: string }>; // Changed to Promise
+  params: Promise<{ projectId: string }>; // Changed to Promise
 }) => {
-  const { blogId } = await params; // Added await
-  const blog = await getBlogById(blogId);
+  const { projectId } = await params; // Added await
+  const project = await getProjectById(projectId);
 
   return (
     <div className="py-30 px-4 max-w-7xl mx-auto">
-      <BlogDetailsCard blog={blog} />
+      <ProjectDetailsCard project={project} />
     </div>
   );
 };
 
-export default BlogDetailsPage;
+export default ProjectDetailsPage;

@@ -11,12 +11,12 @@ export default function CreateBlogForm() {
     const result = await create(formData);
 
     if (result.success) {
-      toast.success("✅ Blog created successfully!");
+      toast.success(" Blog created successfully!");
       setTimeout(() => {
         window.location.href = "/";
       }, 1000);
     } else {
-      toast.error(result.error || "❌ Failed to create blog");
+      toast.error(result.error || " Failed to create blog");
     }
   };
 

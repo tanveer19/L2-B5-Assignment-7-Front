@@ -1,5 +1,5 @@
 "use client";
-import { create } from "@/actions/create";
+import { create } from "@/actions/projects/create";
 import Form from "next/form";
 import { useState } from "react";
 import toast from "react-hot-toast";

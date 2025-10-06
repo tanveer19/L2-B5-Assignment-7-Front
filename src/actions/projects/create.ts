@@ -13,7 +13,7 @@ export const create = async (data: FormData) => {
     const projectInfo = Object.fromEntries(data.entries());
     const modifiedData = {
       ...projectInfo,
-      tags: projectInfo.tags
+      features: projectInfo.features
         .toString()
         .split(",")
         .map((tag) => tag.trim()),
