@@ -46,10 +46,11 @@ export default async function BlogDetailsCard({ blog }: { blog: IPost }) {
           />
         </div>
       )}
-
-      <article className="prose prose-lg max-w-none">
-        <p>{blog.content}</p>
-      </article>
+      {/* Description */}
+      <section className="prose prose-lg max-w-none my-10">
+        <h2 className="text-2xl font-semibold mb-3">Description</h2>
+        <p className="text-gray-700 leading-relaxed">{blog.content}</p>
+      </section>
     </main>
   );
 }
