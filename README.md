@@ -6,7 +6,7 @@ A modern and responsive portfolio section built with **Next.js 15**, **TypeScrip
 
 ## 🌐 Live Demo
 
-🔗 **Live Site:** [https://your-live-site-link.vercel.app](https://your-live-site-link.vercel.app)
+🔗 **Live Site:** [https://l2-b5-assignment-7-front-1.onrender.com/](https://l2-b5-assignment-7-front-1.onrender.com/)
 
 ---
 
@@ -49,6 +49,7 @@ Follow these steps to run the project locally 👇
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/tanveer19/L2-B5-Assignment-7-Front.git
 cd your-repo-name
+pnpm i
 ```
