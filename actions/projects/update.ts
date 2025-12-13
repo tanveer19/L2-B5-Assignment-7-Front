@@ -34,7 +34,7 @@ export const update = async (projectId: string, data: FormData) => {
     const result = await res.json();
 
     if (res.ok && result?.id) {
-      revalidateTag("PROJECTS");
+      revalidateTag("PROJECTS", "page");
       return { success: true, project: result };
     }
 

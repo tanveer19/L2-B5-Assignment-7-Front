@@ -32,7 +32,8 @@ export const create = async (data: FormData) => {
     const result = await res.json();
 
     if (res.ok && result?.id) {
-      revalidateTag("BLOGS");
+      revalidateTag("BLOGS", "page");
+
       return { success: true, blog: result };
     }
 
