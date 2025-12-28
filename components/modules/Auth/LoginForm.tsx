@@ -39,7 +39,7 @@ export default function LoginForm() {
     } catch (err) {
       console.error(err);
     }
-    console.log("Login submitted:", values);
+    // console.log("Login submitted:", values);
   };
 
   return (

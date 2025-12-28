@@ -6,7 +6,7 @@ A modern and responsive portfolio section built with **Next.js 15**, **TypeScrip
 
 ## 🌐 Live Demo
 
-🔗 **Live Site:** [https://l2-b5-assignment-7-front-1.onrender.com/](https://l2-b5-assignment-7-front-1.onrender.com/)
+🔗 **Live Site:** : https://l2-b5-assignment-7-front.vercel.app
 
 ---
 
